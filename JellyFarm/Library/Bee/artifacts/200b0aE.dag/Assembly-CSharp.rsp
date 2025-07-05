@@ -439,6 +439,8 @@
 -analyzer:"/Applications/Unity/Hub/Editor/6000.0.32f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 -analyzer:"/Applications/Unity/Hub/Editor/6000.0.32f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll"
 "Assets/Bolt 2D JellyFarm VE2/ReadMe/Scripts/ReadmeVE2.cs"
+"Assets/Bolt 2D JellyFarm VE2/Scripts/GameManager.cs"
+"Assets/Bolt 2D JellyFarm VE2/Scripts/Jelly.cs"
 "Assets/Bolt 2D JellyFarm VE2/Scripts/Scroll.cs"
 -langversion:9.0
 /deterministic
