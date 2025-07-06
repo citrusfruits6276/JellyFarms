@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -5,22 +6,28 @@ public class Jelly : MonoBehaviour
 {
     Animator anim;
     SpriteRenderer spriter;
+    Collider2D coll;
     public float speed;
     public float speedX;
     public float speedY;
     public int idleTime;
     bool isMoving;
+    public int jellyId;
+    public int jellyLevel;
+    public float exp;
 
+    Coroutine stateRoutine;
 
     void Awake()
     {
         anim = GetComponent<Animator>();
         spriter = GetComponent<SpriteRenderer>();
+        coll = GetComponent<Collider2D>();
     }
 
     void Start()
     {
-        StartCoroutine(StateLoop());
+        stateRoutine = StartCoroutine(StateLoop());
     }
 
     IEnumerator StateLoop()
@@ -29,13 +36,13 @@ public class Jelly : MonoBehaviour
         {
             isMoving = false;
             anim.SetBool("isWalk", false);
-            idleTime = Random.Range(3, 6);
+            idleTime = UnityEngine.Random.Range(3, 6);
             yield return new WaitForSeconds(idleTime);
 
             isMoving = true;
             anim.SetBool("isWalk", true);
-            speedX = Random.Range(-1f, 1f);
-            speedY = Random.Range(-1f, 1f);
+            speedX = UnityEngine.Random.Range(-1f, 1f);
+            speedY = UnityEngine.Random.Range(-1f, 1f);
             yield return new WaitForSeconds(2f);
         }
 
@@ -64,5 +71,22 @@ public class Jelly : MonoBehaviour
 
         if (pos.y < minY || pos.y > maxY)
             speedY *= -1;
+    }
+
+    void OnMouseDown()
+    {
+        exp++;
+        if (exp == 50 || exp == 100)
+            GameManager.instance.ChangeAc(anim, ++jellyLevel);
+        Money.instance.targetJelatin += (jellyId + 1) * jellyLevel;
+        Money.instance.targetJelatin = Math.Min(Money.instance.targetJelatin, 99999999);
+        Debug.Log("오브젝트가 클릭됨!");
+        anim.SetTrigger("doTouch");
+        isMoving = false;
+
+        if (stateRoutine != null)
+            StopCoroutine(stateRoutine);
+
+        stateRoutine = StartCoroutine(StateLoop());
     }
 }

@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using Unity.VisualScripting;
 
 public class Money : MonoBehaviour
 {
@@ -8,6 +9,12 @@ public class Money : MonoBehaviour
 
     private double displayGold;
     private double displayJelatin;
+    public static Money instance;
+
+    void Awake()
+    {
+        instance = this;
+    }
 
     void LateUpdate()
     {
@@ -22,6 +29,8 @@ public class Money : MonoBehaviour
             displayJelatin = targetJelatin;
 
         GameManager.instance.jelatin.text = Math.Round(displayJelatin).ToString("N0");
+
+
     }
 
     double LerpDouble(double a, long b, double t)

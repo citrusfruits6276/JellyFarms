@@ -1697,6 +1697,7 @@ GameObject:
   - component: {fileID: 594772618}
   - component: {fileID: 594772617}
   - component: {fileID: 594772620}
+  - component: {fileID: 594772622}
   m_Layer: 0
   m_Name: Jelly
   m_TagString: Untagged
@@ -1714,7 +1715,7 @@ Animator:
   m_GameObject: {fileID: 594772616}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0d3842a994495234589cb6d54c1215e2, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8c7845f2d3a629943afc1519da279300, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1809,10 +1810,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c2ff001993e445c693ae105c70f6ee5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 1
   speedX: -1
   speedY: -1
   idleTime: 0
+  jellyId: 0
+  jellyLevel: 1
+  exp: 0
+--- !u!58 &594772622
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594772616}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0.5}
+  m_Radius: 0.5
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -2932,6 +2972,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e00618a6b514e4ada95d3b4a67cf9fe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelAc:
+  - {fileID: 9100000, guid: 8c7845f2d3a629943afc1519da279300, type: 2}
+  - {fileID: 9100000, guid: cf4db5108a8b1874692fcde7c19517c8, type: 2}
+  - {fileID: 9100000, guid: 0d3842a994495234589cb6d54c1215e2, type: 2}
   topLeft: {fileID: 2130389800}
   bottomRight: {fileID: 1392736545}
   gold: {fileID: 429919847}
