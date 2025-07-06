@@ -54,8 +54,8 @@ public class Jelly : MonoBehaviour
         Vector3 pos = transform.position;
 
         float minX = GameManager.instance.topLeft.position.x;
-        float maxX = GameManager.instance.BottomRight.position.x;
-        float minY = GameManager.instance.BottomRight.position.y;
+        float maxX = GameManager.instance.bottomRight.position.x;
+        float minY = GameManager.instance.bottomRight.position.y;
         float maxY = GameManager.instance.topLeft.position.y;
 
         if (pos.x < minX || pos.x > maxX)
