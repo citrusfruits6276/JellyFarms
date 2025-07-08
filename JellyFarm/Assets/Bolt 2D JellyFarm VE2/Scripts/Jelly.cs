@@ -76,7 +76,7 @@ public class Jelly : MonoBehaviour
     void OnMouseDown()
     {
         exp++;
-        if (exp == 50 || exp == 100)
+        if (exp == 50 || exp == 250)
             GameManager.instance.ChangeAc(anim, ++jellyLevel);
         Money.instance.targetJelatin += (jellyId + 1) * jellyLevel;
         Money.instance.targetJelatin = Math.Min(Money.instance.targetJelatin, 99999999);
