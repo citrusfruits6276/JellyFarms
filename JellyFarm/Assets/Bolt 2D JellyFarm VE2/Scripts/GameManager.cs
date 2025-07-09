@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public TMP_Text gold;
     public TMP_Text jelatin;
     public static GameManager instance;
+    public int[] jellyGoldList;
 
     void Awake()
     {
